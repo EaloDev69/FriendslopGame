@@ -22,5 +22,11 @@ public class EscenarioManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+        Debug.Log("Saliste");
+    }
     
 }
