@@ -20,8 +20,8 @@ public class PlayerConfigurationManager : MonoBehaviour
     //se cumpla la condicion de terminar el nivel 1
     public bool NivelUnoPassed {get; private set;}
 
-    //Se dispara cada vez que un jugador elige (o le rechazan) una clase,
-    //para que los menus de los demas jugadores refresquen que esta disponible
+    //Se dispara cada vez que un jugador elige una clase con exito,
+    //para que los menus de los demas jugadores refresquen que ya no esta disponible
     public event Action OnPlayerClassChanged;
 
     //iniciar singlelton
@@ -66,6 +66,20 @@ public class PlayerConfigurationManager : MonoBehaviour
         }
 
         config.ClassPrefab = prefabClass;
+        OnPlayerClassChanged?.Invoke();
+        return true;
+    }
+
+    //Libera la clase que tenia el jugador (para que pueda escoger otra
+    //o para que otro jugador pueda tomarla). Tambien lo desmarca como listo.
+    //Devuelve false si el jugador no existe o no tenia clase asignada.
+    public bool UnsetPlayerClass(int index)
+    {
+        var config = players.FirstOrDefault(p => p.PlayerIndex == index);
+        if (config == null) return false;
+
+        config.ClassPrefab = null;
+        config.IsReady = false;
         OnPlayerClassChanged?.Invoke();
         return true;
     }

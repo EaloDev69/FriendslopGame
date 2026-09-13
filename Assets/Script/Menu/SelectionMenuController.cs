@@ -12,6 +12,7 @@ public class SelectionMenuController : MonoBehaviour
     [SerializeField] GameObject ReadyPanel;
     [SerializeField] GameObject MenuPanel;
     [SerializeField] Button readyButton;
+    [SerializeField] Button cancelButton;
 
     [Serializable]
     public class ClassOption
@@ -93,5 +94,36 @@ public class SelectionMenuController : MonoBehaviour
 
         PlayerConfigurationManager.Instance.ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
+        cancelButton.gameObject.SetActive(false);
+        
+    }
+
+    //Enganchar a un boton dentro del ReadyPanel (ej. "Cancelar")
+    public void UnselectClass()
+    {
+        if (!inputEnabled) {return; }
+
+        PlayerConfigurationManager.Instance.UnsetPlayerClass(playerIndex);
+        ReadyPanel.SetActive(false);
+        readyButton.gameObject.SetActive(true);
+        MenuPanel.SetActive(true);
+
+        SelectFirstAvailableClassButton();
+    }
+
+    //Selecciona el primer boton de clase habilitado, para que el menu
+    //no quede sin foco (softlock) al volver desde el ReadyPanel
+    void SelectFirstAvailableClassButton()
+    {
+        if (classOptions == null) return;
+
+        foreach (var option in classOptions)
+        {
+            if (option.button != null && option.button.interactable)
+            {
+                option.button.Select();
+                return;
+            }
+        }
     }
 }
