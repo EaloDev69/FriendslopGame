@@ -205,7 +205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -31.6}
+  m_AnchoredPosition: {x: 0, y: -31.600006}
   m_SizeDelta: {x: 1140.7, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &218687686
@@ -242,11 +242,6 @@ MonoBehaviour:
   - {fileID: 802463336}
   - {fileID: 1581627541}
   - {fileID: 1857677510}
-  playerPrefab:
-  - {fileID: 2839223667389269780, guid: 0b9fa02ced176f742bf07e73b4d36623, type: 3}
-  - {fileID: 2839223667389269780, guid: ce622aa8bee79a74cb5f1453cc200f09, type: 3}
-  - {fileID: 2839223667389269780, guid: 31d372a1cf9648245b4386e771876ace, type: 3}
-  - {fileID: 2839223667389269780, guid: ba3bf46a0a2eb0b4986b74bc2e1d5a3a, type: 3}
 --- !u!4 &218687688
 Transform:
   m_ObjectHideFlags: 0
@@ -961,8 +956,8 @@ Canvas:
   m_GameObject: {fileID: 1165987122}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 452458333}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

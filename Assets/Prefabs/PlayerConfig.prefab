@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7660490218218916735}
   - component: {fileID: 8496153562941416946}
   - component: {fileID: 3650488110260143681}
+  - component: {fileID: 6921878809906114226}
   m_Layer: 0
   m_Name: PlayerConfig
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2412895428958963223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 826.8962, y: -0.00001, z: 1.2587843e+10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67,19 +68,7 @@ MonoBehaviour:
     m_ActionId: 1a57f53e-6834-4511-b5de-1d370cf61daf
     m_ActionName: 'Gameplay/Jump[/Keyboard/space]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 7c99a6fb-a7c2-435e-a915-62238b899d0c
     m_ActionName: 'UI/Navigation[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -113,3 +102,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerMenu
   PlayerSetupPanel: {fileID: 742273567521425750, guid: f0e8b7886280dee4c88fad34ce8b6e86, type: 3}
   Input: {fileID: 8496153562941416946}
+--- !u!114 &6921878809906114226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412895428958963223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203d5fb7300984b4495eb144f52b68c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler

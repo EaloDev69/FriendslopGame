@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInputManager
   m_NotificationBehavior: 2
-  m_MaxPlayerCount: 4
+  m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 1
   m_PlayerJoinedEvent:
@@ -1153,7 +1153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   cv: {fileID: 820866401}
   layout: {fileID: 1340462695}
-  joinAction: {fileID: 3787215340336438811, guid: 5da04590a58a3994e8e8c9eb7e054569, type: 3}
 --- !u!4 &1223334927
 Transform:
   m_ObjectHideFlags: 0
@@ -1344,7 +1343,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 1
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
