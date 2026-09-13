@@ -10,11 +10,11 @@ public class SpawnPlayerMenu : MonoBehaviour
     void Awake()
     {
         var rootMenu = GameObject.Find("Layout");
-        if(rootMenu != null)
+        if (rootMenu != null && MenuManager.Instance != null && MenuManager.Instance.Menuapagado)
         {
-             var menu = Instantiate(PlayerSetupPanel, rootMenu.transform);
-             Input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
-             menu.GetComponent<SelectionMenuController>().SetPlayerIndex(Input.playerIndex);
+            var menu = Instantiate(PlayerSetupPanel, rootMenu.transform);
+            Input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
+            menu.GetComponent<SelectionMenuController>().SetPlayerIndex(Input.playerIndex);
         }
     }
 }

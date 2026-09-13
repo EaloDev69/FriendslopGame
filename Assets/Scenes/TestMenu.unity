@@ -1152,7 +1152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   cv: {fileID: 820866401}
-  pim: {fileID: 0}
+  layout: {fileID: 1340462695}
+  joinAction: {fileID: 3787215340336438811, guid: 5da04590a58a3994e8e8c9eb7e054569, type: 3}
 --- !u!4 &1223334927
 Transform:
   m_ObjectHideFlags: 0

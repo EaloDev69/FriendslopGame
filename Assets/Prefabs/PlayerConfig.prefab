@@ -77,3 +77,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPlayerMenu
   PlayerSetupPanel: {fileID: 742273567521425750, guid: f0e8b7886280dee4c88fad34ce8b6e86, type: 3}
   Input: {fileID: 8496153562941416946}
+  menuManager: {fileID: 0}
