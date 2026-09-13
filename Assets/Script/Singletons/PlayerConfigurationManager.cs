@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,17 +8,21 @@ public class PlayerConfigurationManager : MonoBehaviour
 {
     //Listado de jugadores
     List<PlayerConfigurations> players;
-    
+
     //Limitamos los jugadores a los necesarios para seguir (4 por regla)
     //la dejo como serialized para modificar en unit para debugueo :3
     [SerializeField] private int JugadoresMax = 1;
 
     //instancia del singlelton
     public static PlayerConfigurationManager Instance {get; private set;}
-    
+
     //Confirmante invocable desde el juego para jugar el segundo nivel cuando
     //se cumpla la condicion de terminar el nivel 1
     public bool NivelUnoPassed {get; private set;}
+
+    //Se dispara cada vez que un jugador elige (o le rechazan) una clase,
+    //para que los menus de los demas jugadores refresquen que esta disponible
+    public event Action OnPlayerClassChanged;
 
     //iniciar singlelton
     void Awake()
@@ -40,18 +45,38 @@ public class PlayerConfigurationManager : MonoBehaviour
         return players;
     }
 
-    //otorgamos la clase del jugador segun la que escoja
-    public void SetPlayerClass(int index, GameObject prefabClass)
+    //true si algun OTRO jugador (distinto a excludingPlayerIndex) ya tiene esta clase
+    public bool IsClassTaken(GameObject prefabClass, int excludingPlayerIndex = -1)
     {
+        return players.Any(p =>
+            p.PlayerIndex != excludingPlayerIndex &&
+            p.ClassPrefab == prefabClass);
+    }
 
-        
-        players[index].ClassPrefab = prefabClass;
+    //otorgamos la clase del jugador segun la que escoja
+    //devuelve false si la clase ya estaba tomada por otro jugador
+    public bool SetPlayerClass(int index, GameObject prefabClass)
+    {
+        var config = players.FirstOrDefault(p => p.PlayerIndex == index);
+        if (config == null) return false;
+
+        if (IsClassTaken(prefabClass, index))
+        {
+            return false;
+        }
+
+        config.ClassPrefab = prefabClass;
+        OnPlayerClassChanged?.Invoke();
+        return true;
     }
 
     //Confirmado para iniciar
     public void ReadyPlayer(int index)
     {
-        players[index].IsReady = true;
+        var config = players.FirstOrDefault(p => p.PlayerIndex == index);
+        if (config == null) return;
+
+        config.IsReady = true;
         if(players.Count == JugadoresMax && players.All(p => p.IsReady == true))
         {
             EscenarioManager.Instance.Niveluno();
@@ -65,7 +90,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         pi.transform.SetParent(transform);
         if(!players.Any(p => p.PlayerIndex == pi.playerIndex))
         {
-            players.Add(new PlayerConfigurations(pi))            ;
+            players.Add(new PlayerConfigurations(pi));
         }
     }
 }

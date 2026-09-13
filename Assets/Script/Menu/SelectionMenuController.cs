@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,16 @@ public class SelectionMenuController : MonoBehaviour
     [SerializeField] GameObject MenuPanel;
     [SerializeField] Button readyButton;
 
+    [Serializable]
+    public class ClassOption
+    {
+        public Button button;
+        public GameObject prefab;
+    }
+
+    [Header("Clases seleccionables")]
+    [SerializeField] ClassOption[] classOptions;
+
     float ignoreInputTime = 1.5f;
     bool inputEnabled;
 
@@ -23,6 +34,20 @@ public class SelectionMenuController : MonoBehaviour
         ignoreInputTime = Time.time + ignoreInputTime;
     }
 
+    void OnEnable()
+    {
+        PlayerConfigurationManager.Instance.OnPlayerClassChanged += RefreshClassButtons;
+        RefreshClassButtons();
+    }
+
+    void OnDisable()
+    {
+        if (PlayerConfigurationManager.Instance != null)
+        {
+            PlayerConfigurationManager.Instance.OnPlayerClassChanged -= RefreshClassButtons;
+        }
+    }
+
     void Update()
     {
         if(Time.time > ignoreInputTime)
@@ -31,11 +56,32 @@ public class SelectionMenuController : MonoBehaviour
         }
     }
 
+    //Deshabilita los botones de clases ya escogidas por otros jugadores
+    void RefreshClassButtons()
+    {
+        if (classOptions == null) return;
+
+        foreach (var option in classOptions)
+        {
+            if (option.button == null || option.prefab == null) continue;
+
+            bool takenByOther = PlayerConfigurationManager.Instance.IsClassTaken(option.prefab, playerIndex);
+            option.button.interactable = !takenByOther;
+        }
+    }
+
     public void SetPrefab(GameObject JugadorPrefab)
     {
         if(!inputEnabled) {return; }
 
-        PlayerConfigurationManager.Instance.SetPlayerClass(playerIndex, JugadorPrefab);
+        bool assigned = PlayerConfigurationManager.Instance.SetPlayerClass(playerIndex, JugadorPrefab);
+        if (!assigned)
+        {
+            // Otro jugador tomo esta clase justo antes; refrescamos por si acaso
+            RefreshClassButtons();
+            return;
+        }
+
         ReadyPanel.SetActive(true);
         readyButton.Select();
         MenuPanel.SetActive(false);
