@@ -130,15 +130,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Ready",
-                    "type": "Button",
-                    "id": "ef5f22dd-4292-46da-af92-839914051890",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Confirm",
                     "type": "Button",
                     "id": "b2a46fb2-04ab-4c07-a8fb-2c0b2c2073ce",
@@ -151,6 +142,15 @@
                     "name": "Back",
                     "type": "Button",
                     "id": "ac2f0bf1-797a-4d37-aa83-4103332f4050",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "e93f93ce-0607-4fae-acc3-cf3c8fae28bf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -226,28 +226,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f20c3d6e-5742-4357-982f-165565f4287a",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Ready",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3dff5b11-115d-48e2-ae23-e54aeb9ec792",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";WASD",
-                    "action": "Ready",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6848399b-cb6e-4eed-9fbf-47fd24e9672b",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -260,7 +238,7 @@
                 {
                     "name": "",
                     "id": "c09e3458-8fad-4c5b-b66c-770cf67c5e8b",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";WASD",
@@ -298,6 +276,28 @@
                     "processors": "",
                     "groups": ";WASD",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e183028a-d253-4a80-b9bd-d2cc63118116",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8501d98b-a0c1-45c1-a407-257f9a87a37f",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

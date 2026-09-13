@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 9002601297882601080}
   - component: {fileID: 1257960345349623439}
   - component: {fileID: 7433462462692465842}
+  - component: {fileID: -5738793876383361962}
   - component: {fileID: 8922509945558701446}
   - component: {fileID: 161960239639550377}
-  - component: {fileID: 3622346108901686073}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e4b6ca6bd01adbc488879bb385477f48, type: 2}
+  - {fileID: 2100000, guid: 514a5e2fb4f224046a1ab3f6860537e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,6 +222,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5738793876383361962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839223667389269780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203d5fb7300984b4495eb144f52b68c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
 --- !u!114 &8922509945558701446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,15 +261,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190f7c94a41241640bbdf100997b946b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetAutoRegister
---- !u!114 &3622346108901686073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2839223667389269780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203d5fb7300984b4495eb144f52b68c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler

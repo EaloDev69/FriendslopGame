@@ -3,6 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class EscenarioManager : MonoBehaviour
 {
+
+    public static EscenarioManager Instance {get; private set;}
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
     public void Menu()
     {
         SceneManager.LoadScene(0);
