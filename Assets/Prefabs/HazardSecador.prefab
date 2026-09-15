@@ -149,3 +149,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
   requiredClass: 2
   accion: 0
+  orden: 2
