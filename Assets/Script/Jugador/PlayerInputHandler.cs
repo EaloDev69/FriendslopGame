@@ -29,7 +29,16 @@ public class PlayerInputHandler : MonoBehaviour
             playerInput.actions["Gameplay/Move"].canceled += controller.Move;
             playerInput.actions["Gameplay/Jump"].performed += controller.Jump;
             playerInput.actions["Gameplay/Jump"].canceled += controller.Jump;
+        }
 
+        var hazardInteractor = classInstance.GetComponent<HazardInteractor>();
+        if (hazardInteractor != null && playerInput != null)
+        {
+            playerInput.actions["Gameplay/Act"].performed += hazardInteractor.Act;
+        }
+
+        if (playerInput != null)
+        {
             playerInput.SwitchCurrentActionMap("Gameplay"); // <- clave
         }
     }

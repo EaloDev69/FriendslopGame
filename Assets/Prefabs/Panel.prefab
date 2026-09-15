@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Clase
+  m_text: Secador
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -176,7 +176,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 450, y: 450}
+  m_SizeDelta: {x: 350, y: 684.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6206829647472300071
 CanvasRenderer:
@@ -236,12 +236,16 @@ MonoBehaviour:
   classOptions:
   - button: {fileID: 7604124252137394465}
     prefab: {fileID: 2839223667389269780, guid: 0b9fa02ced176f742bf07e73b4d36623, type: 3}
+    classType: 0
   - button: {fileID: 7732153286178039764}
     prefab: {fileID: 2839223667389269780, guid: ce622aa8bee79a74cb5f1453cc200f09, type: 3}
+    classType: 1
   - button: {fileID: 178397533799908519}
     prefab: {fileID: 2839223667389269780, guid: 31d372a1cf9648245b4386e771876ace, type: 3}
+    classType: 2
   - button: {fileID: 3561662412374581087}
     prefab: {fileID: 2839223667389269780, guid: ba3bf46a0a2eb0b4986b74bc2e1d5a3a, type: 3}
+    classType: 3
 --- !u!1 &1394761009076767817
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Clase
+  m_text: Barrendero
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -547,7 +551,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 160, y: 50}
+  m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &904689767639546610
 CanvasRenderer:
@@ -662,7 +666,7 @@ GameObject:
   - component: {fileID: 7043877721824145643}
   - component: {fileID: 178397533799908519}
   m_Layer: 5
-  m_Name: Clase 3
+  m_Name: Secador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,9 +687,9 @@ RectTransform:
   - {fileID: 5989255852234282478}
   m_Father: {fileID: 6549417298462353403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: -80}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -80}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5696809844319841393
@@ -741,10 +745,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 7604124252137394465}
-    m_SelectOnDown: {fileID: 7604124252137394465}
-    m_SelectOnLeft: {fileID: 3561662412374581087}
-    m_SelectOnRight: {fileID: 3561662412374581087}
+    m_SelectOnUp: {fileID: 7732153286178039764}
+    m_SelectOnDown: {fileID: 3561662412374581087}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -795,7 +799,7 @@ GameObject:
   - component: {fileID: 4895404356922460928}
   - component: {fileID: 3561662412374581087}
   m_Layer: 5
-  m_Name: Clase 4
+  m_Name: Organizador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,9 +820,9 @@ RectTransform:
   - {fileID: 1589833957781515540}
   m_Father: {fileID: 6549417298462353403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 45, y: -80}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -160}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3123058305535973628
@@ -874,10 +878,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 7732153286178039764}
-    m_SelectOnDown: {fileID: 7732153286178039764}
-    m_SelectOnLeft: {fileID: 178397533799908519}
-    m_SelectOnRight: {fileID: 178397533799908519}
+    m_SelectOnUp: {fileID: 178397533799908519}
+    m_SelectOnDown: {fileID: 7604124252137394465}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1060,7 +1064,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Clase
+  m_text: Organizador
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1182,7 +1186,7 @@ GameObject:
   - component: {fileID: 872821262457578045}
   - component: {fileID: 7604124252137394465}
   m_Layer: 5
-  m_Name: Clase 1
+  m_Name: Barrendero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1203,9 +1207,9 @@ RectTransform:
   - {fileID: 2916600433866023410}
   m_Father: {fileID: 6549417298462353403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &87926242172813512
@@ -1261,10 +1265,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 178397533799908519}
-    m_SelectOnDown: {fileID: 178397533799908519}
-    m_SelectOnLeft: {fileID: 7732153286178039764}
-    m_SelectOnRight: {fileID: 7732153286178039764}
+    m_SelectOnUp: {fileID: 3561662412374581087}
+    m_SelectOnDown: {fileID: 7732153286178039764}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1585,7 +1589,7 @@ GameObject:
   - component: {fileID: 4145997658589234800}
   - component: {fileID: 7732153286178039764}
   m_Layer: 5
-  m_Name: Clase 2
+  m_Name: Trapeador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1606,9 +1610,9 @@ RectTransform:
   - {fileID: 3739783569412384217}
   m_Father: {fileID: 6549417298462353403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 45, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8971387601040231181
@@ -1664,10 +1668,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 3561662412374581087}
-    m_SelectOnDown: {fileID: 3561662412374581087}
-    m_SelectOnLeft: {fileID: 7604124252137394465}
-    m_SelectOnRight: {fileID: 7604124252137394465}
+    m_SelectOnUp: {fileID: 7604124252137394465}
+    m_SelectOnDown: {fileID: 178397533799908519}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1947,7 +1951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Clase
+  m_text: Trapeador
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

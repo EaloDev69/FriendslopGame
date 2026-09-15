@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 7433462462692465842}
   - component: {fileID: 8922509945558701446}
   - component: {fileID: 161960239639550377}
+  - component: {fileID: 1081791699037030083}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Secador
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 514a5e2fb4f224046a1ab3f6860537e3, type: 2}
+  - {fileID: 2100000, guid: dda91ce48fc172049bdd5295e34bac35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,3 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190f7c94a41241640bbdf100997b946b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetAutoRegister
+--- !u!114 &1081791699037030083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2839223667389269780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3561412dde9414e4bbbd996fa656f6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HazardInteractor

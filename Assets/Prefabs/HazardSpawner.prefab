@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1979618075030109812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5739582415073860583}
+  - component: {fileID: 5910191403875884270}
+  m_Layer: 0
+  m_Name: HazardSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5739582415073860583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979618075030109812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.01204, y: 0, z: -0.13895}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5910191403875884270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979618075030109812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fcae6390173594e93643d6429330e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HazardSpawner
+  areaSize: {x: 10, y: 10}
+  dibujarGizmo: 1
+  hazardOptions:
+  - prefab: {fileID: 8228135861974471712, guid: 509425dbee46e424fa3f636c4a009da1, type: 3}
+    weight: 1
+    requiredClass: 3
+    accion: 1
+  - prefab: {fileID: 8228135861974471712, guid: 158db6c768c6d9d4fb9bc14a771ded1d, type: 3}
+    weight: 1
+    requiredClass: 0
+    accion: 0
+  - prefab: {fileID: 8228135861974471712, guid: 670251a3273997c46ba69aa87491eb68, type: 3}
+    weight: 1
+    requiredClass: 2
+    accion: 0
+  - prefab: {fileID: 8228135861974471712, guid: 7c24d22ce55249a48b874870429c2ff8, type: 3}
+    weight: 1
+    requiredClass: 1
+    accion: 0
+  cantidadMin: 5
+  cantidadMax: 10
+  garantizarVariedad: 1
+  capaObstaculos:
+    serializedVersion: 2
+    m_Bits: 0

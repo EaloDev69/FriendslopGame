@@ -19,6 +19,7 @@ public class SelectionMenuController : MonoBehaviour
     {
         public Button button;
         public GameObject prefab;
+        public ClassType classType;
     }
 
     [Header("Clases seleccionables")]
@@ -75,7 +76,14 @@ public class SelectionMenuController : MonoBehaviour
     {
         if(!inputEnabled) {return; }
 
-        bool assigned = PlayerConfigurationManager.Instance.SetPlayerClass(playerIndex, JugadorPrefab);
+        ClassOption option = Array.Find(classOptions, o => o.prefab == JugadorPrefab);
+        if (option == null)
+        {
+            Debug.LogWarning("No se encontro ClassOption para el prefab: " + JugadorPrefab.name);
+            return;
+        }
+
+        bool assigned = PlayerConfigurationManager.Instance.SetPlayerClass(playerIndex, JugadorPrefab, option.classType);
         if (!assigned)
         {
             // Otro jugador tomo esta clase justo antes; refrescamos por si acaso

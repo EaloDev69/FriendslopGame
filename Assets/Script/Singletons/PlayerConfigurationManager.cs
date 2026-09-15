@@ -55,17 +55,15 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     //otorgamos la clase del jugador segun la que escoja
     //devuelve false si la clase ya estaba tomada por otro jugador
-    public bool SetPlayerClass(int index, GameObject prefabClass)
+    public bool SetPlayerClass(int index, GameObject prefabClass, ClassType classType)
     {
         var config = players.FirstOrDefault(p => p.PlayerIndex == index);
         if (config == null) return false;
 
-        if (IsClassTaken(prefabClass, index))
-        {
-            return false;
-        }
+        if (IsClassTaken(prefabClass, index)) return false;
 
         config.ClassPrefab = prefabClass;
+        config.ClassType = classType;
         OnPlayerClassChanged?.Invoke();
         return true;
     }
@@ -109,14 +107,21 @@ public class PlayerConfigurationManager : MonoBehaviour
     }
 }
 
+public enum ClassType
+{
+    Barrendero,
+    Trapeador,
+    Secador,
+    Organizador
+}
 public class PlayerConfigurations
 {
     //datos  elementos necesarios para que el jugador inicie correctamente
     public PlayerInput Input{get; set;}
     public int PlayerIndex {get; set;}
     public bool IsReady {get; set;}
-
     public GameObject ClassPrefab {get; set;}
+    public ClassType ClassType {get; set;}
 
     public PlayerConfigurations(PlayerInput pi)
     {
