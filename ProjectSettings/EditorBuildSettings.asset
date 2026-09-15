@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EsccenaTesteo.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Nivel2.unity
+    guid: 2389a96eecf0c6846b604a20e12d1f85
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 111c6ee4d72b10f42bf0e3af3efc6a7b, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -6,8 +6,11 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance { get; private set; }
 
     [SerializeField] Canvas cv;
-    [SerializeField] GameObject layout; // objeto Layout, arrastrar en el Inspector
+    [SerializeField] GameObject layout;
     [SerializeField] TextMeshProUGUI Instruccion;
+
+    [Header("Seleccion de nivel")]
+    [SerializeField] GameObject levelSelectionPanel; // nuevo panel, arrastrar en el Inspector
 
     public bool Menuapagado { get; private set; }
 
@@ -15,29 +18,49 @@ public class MenuManager : MonoBehaviour
     {
         Instance = this;
 
-        // Nadie puede unirse mientras se ve la portada
         if (UnityEngine.InputSystem.PlayerInputManager.instance != null)
         {
             UnityEngine.InputSystem.PlayerInputManager.instance.DisableJoining();
         }
         Instruccion.gameObject.SetActive(false);
+
+        if (levelSelectionPanel != null) levelSelectionPanel.SetActive(false);
+    }
+
+    void Start()
+    {
+        if (PlayerConfigurationManager.Instance != null)
+        {
+            PlayerConfigurationManager.Instance.OnAllPlayersReady += MostrarSeleccionNivel;
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (PlayerConfigurationManager.Instance != null)
+        {
+            PlayerConfigurationManager.Instance.OnAllPlayersReady -= MostrarSeleccionNivel;
+        }
     }
 
     public void ApagarMenu()
     {
         cv.gameObject.SetActive(false);
-        Debug.Log("Me debo apagar");
         Instruccion.gameObject.SetActive(true);
 
-        layout.SetActive(true); // 1. se activa Layout
+        layout.SetActive(true);
         Menuapagado = true;
 
-        // 2. solo ahora se permite el Join
         if (UnityEngine.InputSystem.PlayerInputManager.instance != null)
         {
             UnityEngine.InputSystem.PlayerInputManager.instance.EnableJoining();
         }
+    }
 
-        Debug.Log("Layout activo, Join habilitado");
+    void MostrarSeleccionNivel()
+    {
+        Instruccion.gameObject.SetActive(false);
+
+        if (levelSelectionPanel != null) levelSelectionPanel.SetActive(true);
     }
 }

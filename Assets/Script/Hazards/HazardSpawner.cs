@@ -31,8 +31,6 @@ public class HazardSpawner : MonoBehaviour
     [Tooltip("Si esta activo, se asegura de spawnear al menos 1 de cada tipo de hazard antes de completar el resto al azar.")]
     [SerializeField] private bool garantizarVariedad = true;
 
-    [Header("Configuracion adicional")]
-    [SerializeField] private LayerMask capaObstaculos; // opcional
 
     private readonly List<GameObject> hazardsActivos = new List<GameObject>();
 
@@ -129,11 +127,6 @@ public class HazardSpawner : MonoBehaviour
             float x = UnityEngine.Random.Range(-halfX, halfX);
             float z = UnityEngine.Random.Range(-halfZ, halfZ);
             pos = centro + new Vector3(x, 0f, z);
-
-            if (capaObstaculos.value == 0 || !Physics.CheckSphere(pos, 0.5f, capaObstaculos))
-            {
-                return pos;
-            }
             intentos--;
         }
 

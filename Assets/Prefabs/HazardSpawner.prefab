@@ -47,14 +47,14 @@ MonoBehaviour:
   areaSize: {x: 10, y: 10}
   dibujarGizmo: 1
   hazardOptions:
-  - prefab: {fileID: 8228135861974471712, guid: 509425dbee46e424fa3f636c4a009da1, type: 3}
-    weight: 1
-    requiredClass: 3
-    accion: 1
   - prefab: {fileID: 8228135861974471712, guid: 158db6c768c6d9d4fb9bc14a771ded1d, type: 3}
     weight: 1
     requiredClass: 0
     accion: 0
+  - prefab: {fileID: 8228135861974471712, guid: 509425dbee46e424fa3f636c4a009da1, type: 3}
+    weight: 1
+    requiredClass: 3
+    accion: 1
   - prefab: {fileID: 8228135861974471712, guid: 670251a3273997c46ba69aa87491eb68, type: 3}
     weight: 1
     requiredClass: 2
@@ -63,8 +63,8 @@ MonoBehaviour:
     weight: 1
     requiredClass: 1
     accion: 0
-  cantidadMin: 5
-  cantidadMax: 10
+  cantidadMin: 10
+  cantidadMax: 20
   garantizarVariedad: 1
   capaObstaculos:
     serializedVersion: 2

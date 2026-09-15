@@ -39,6 +39,7 @@ public class LevelProgressManager : MonoBehaviour
         if (NivelCompletado) return;
 
         HazardsRestantes = Mathf.Max(0, HazardsRestantes - 1);
+        Debug.Log($"Hazard limpiado. Restantes: {HazardsRestantes}/{TotalHazards}");
         OnHazardsChanged?.Invoke(HazardsRestantes, TotalHazards);
 
         VerificarCompletado();
@@ -47,9 +48,14 @@ public class LevelProgressManager : MonoBehaviour
     void VerificarCompletado()
     {
         if (HazardsRestantes > 0) return;
-        if (timer != null && timer.TiempoAgotado) return; // se acabo el tiempo antes de terminar
+        if (timer != null && timer.TiempoAgotado)
+        {
+            Debug.Log("Tiempo agotado, no se completa el nivel.");
+            return;
+        }
 
         NivelCompletado = true;
+        Debug.Log("NIVEL COMPLETADO, disparando evento.");
         OnNivelCompletado?.Invoke();
     }
 }

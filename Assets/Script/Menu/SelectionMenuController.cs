@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class SelectionMenuController : MonoBehaviour
 {
-    private int  playerIndex;
+    private int playerIndex;
 
     [Header("Elementos del menu")]
     [SerializeField] TextMeshProUGUI titleText;
     [SerializeField] GameObject ReadyPanel;
     [SerializeField] GameObject MenuPanel;
+    [SerializeField] GameObject LevelSelectPanel; // nuevo
     [SerializeField] Button readyButton;
     [SerializeField] Button cancelButton;
 
@@ -32,13 +33,13 @@ public class SelectionMenuController : MonoBehaviour
     {
         playerIndex = pi;
         titleText.SetText("Jugador " + (pi + 1).ToString());
-
         ignoreInputTime = Time.time + ignoreInputTime;
     }
 
     void OnEnable()
     {
         PlayerConfigurationManager.Instance.OnPlayerClassChanged += RefreshClassButtons;
+        PlayerConfigurationManager.Instance.OnAllPlayersReady += MostrarSeleccionNivel;
         RefreshClassButtons();
     }
 
@@ -47,6 +48,7 @@ public class SelectionMenuController : MonoBehaviour
         if (PlayerConfigurationManager.Instance != null)
         {
             PlayerConfigurationManager.Instance.OnPlayerClassChanged -= RefreshClassButtons;
+            PlayerConfigurationManager.Instance.OnAllPlayersReady -= MostrarSeleccionNivel;
         }
     }
 
@@ -58,7 +60,6 @@ public class SelectionMenuController : MonoBehaviour
         }
     }
 
-    //Deshabilita los botones de clases ya escogidas por otros jugadores
     void RefreshClassButtons()
     {
         if (classOptions == null) return;
@@ -74,7 +75,7 @@ public class SelectionMenuController : MonoBehaviour
 
     public void SetPrefab(GameObject JugadorPrefab)
     {
-        if(!inputEnabled) {return; }
+        if(!inputEnabled) { return; }
 
         ClassOption option = Array.Find(classOptions, o => o.prefab == JugadorPrefab);
         if (option == null)
@@ -86,7 +87,6 @@ public class SelectionMenuController : MonoBehaviour
         bool assigned = PlayerConfigurationManager.Instance.SetPlayerClass(playerIndex, JugadorPrefab, option.classType);
         if (!assigned)
         {
-            // Otro jugador tomo esta clase justo antes; refrescamos por si acaso
             RefreshClassButtons();
             return;
         }
@@ -98,18 +98,16 @@ public class SelectionMenuController : MonoBehaviour
 
     public void ReadyPlayer()
     {
-        if (!inputEnabled) {return; }
+        if (!inputEnabled) { return; }
 
         PlayerConfigurationManager.Instance.ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
         cancelButton.gameObject.SetActive(false);
-        
     }
 
-    //Enganchar a un boton dentro del ReadyPanel (ej. "Cancelar")
     public void UnselectClass()
     {
-        if (!inputEnabled) {return; }
+        if (!inputEnabled) { return; }
 
         PlayerConfigurationManager.Instance.UnsetPlayerClass(playerIndex);
         ReadyPanel.SetActive(false);
@@ -119,8 +117,6 @@ public class SelectionMenuController : MonoBehaviour
         SelectFirstAvailableClassButton();
     }
 
-    //Selecciona el primer boton de clase habilitado, para que el menu
-    //no quede sin foco (softlock) al volver desde el ReadyPanel
     void SelectFirstAvailableClassButton()
     {
         if (classOptions == null) return;
@@ -131,6 +127,29 @@ public class SelectionMenuController : MonoBehaviour
             {
                 option.button.Select();
                 return;
+            }
+        }
+    }
+
+    //Se llama en TODOS los jugadores cuando el ultimo confirma su Ready
+    void MostrarSeleccionNivel()
+    {
+        ReadyPanel.SetActive(false);
+
+        if (LevelSelectPanel != null)
+        {
+            LevelSelectPanel.SetActive(true);
+
+            // Solo el jugador 0 puede interactuar; los demas ven el panel pero no lo navegan
+            var botones = LevelSelectPanel.GetComponentsInChildren<Button>();
+            foreach (var boton in botones)
+            {
+                boton.interactable = (playerIndex == 0);
+            }
+
+            if (playerIndex == 0 && botones.Length > 0)
+            {
+                botones[0].Select();
             }
         }
     }

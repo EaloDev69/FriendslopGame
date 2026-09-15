@@ -6,25 +6,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
-    //Listado de jugadores
     List<PlayerConfigurations> players;
 
-    //Limitamos los jugadores a los necesarios para seguir (4 por regla)
-    //la dejo como serialized para modificar en unit para debugueo :3
     [SerializeField] private int JugadoresMax = 1;
 
-    //instancia del singlelton
     public static PlayerConfigurationManager Instance {get; private set;}
 
-    //Confirmante invocable desde el juego para jugar el segundo nivel cuando
-    //se cumpla la condicion de terminar el nivel 1
-    public bool NivelUnoPassed {get; private set;}
-
-    //Se dispara cada vez que un jugador elige una clase con exito,
-    //para que los menus de los demas jugadores refresquen que ya no esta disponible
     public event Action OnPlayerClassChanged;
 
-    //iniciar singlelton
+    //Se dispara cuando todos los jugadores confirmaron su clase
+    public event Action OnAllPlayersReady;
+
     void Awake()
     {
         if(Instance != null)
@@ -45,7 +37,6 @@ public class PlayerConfigurationManager : MonoBehaviour
         return players;
     }
 
-    //true si algun OTRO jugador (distinto a excludingPlayerIndex) ya tiene esta clase
     public bool IsClassTaken(GameObject prefabClass, int excludingPlayerIndex = -1)
     {
         return players.Any(p =>
@@ -53,8 +44,6 @@ public class PlayerConfigurationManager : MonoBehaviour
             p.ClassPrefab == prefabClass);
     }
 
-    //otorgamos la clase del jugador segun la que escoja
-    //devuelve false si la clase ya estaba tomada por otro jugador
     public bool SetPlayerClass(int index, GameObject prefabClass, ClassType classType)
     {
         var config = players.FirstOrDefault(p => p.PlayerIndex == index);
@@ -68,9 +57,6 @@ public class PlayerConfigurationManager : MonoBehaviour
         return true;
     }
 
-    //Libera la clase que tenia el jugador (para que pueda escoger otra
-    //o para que otro jugador pueda tomarla). Tambien lo desmarca como listo.
-    //Devuelve false si el jugador no existe o no tenia clase asignada.
     public bool UnsetPlayerClass(int index)
     {
         var config = players.FirstOrDefault(p => p.PlayerIndex == index);
@@ -82,7 +68,6 @@ public class PlayerConfigurationManager : MonoBehaviour
         return true;
     }
 
-    //Confirmado para iniciar
     public void ReadyPlayer(int index)
     {
         var config = players.FirstOrDefault(p => p.PlayerIndex == index);
@@ -91,11 +76,10 @@ public class PlayerConfigurationManager : MonoBehaviour
         config.IsReady = true;
         if(players.Count == JugadoresMax && players.All(p => p.IsReady == true))
         {
-            EscenarioManager.Instance.Niveluno();
+            OnAllPlayersReady?.Invoke();
         }
     }
 
-    //Se añade al jugador que ingresa al listado de jugadores
     public void HandlePlayerJoin(PlayerInput pi)
     {
         Debug.Log("Se unio Jugador " + pi.playerIndex + 1);
@@ -114,9 +98,9 @@ public enum ClassType
     Secador,
     Organizador
 }
+
 public class PlayerConfigurations
 {
-    //datos  elementos necesarios para que el jugador inicie correctamente
     public PlayerInput Input{get; set;}
     public int PlayerIndex {get; set;}
     public bool IsReady {get; set;}
@@ -128,5 +112,4 @@ public class PlayerConfigurations
         PlayerIndex = pi.playerIndex;
         Input = pi;
     }
-
 }
