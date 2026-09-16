@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [Header("Configurar tiempos")]
-    [SerializeField] int tiempoTotal = 180; 
-    float contador = 0f;
+    [SerializeField] int tiempoTotal = 180;
+    [SerializeField] Image barraDeTiempo; // Image con Type = Filled
 
-    [SerializeField] Slider BarradeTiempo;
-
+    float contador;
     bool detenido = false;
+    bool eventoDisparado = false;
 
     public float TiempoRestante => contador;
     public bool TiempoAgotado => contador <= 0f;
+    public event System.Action OnTiempoAgotado;
 
     void Start()
     {
@@ -21,23 +21,29 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        actualizarContador();
-    }
-
-    public void Detener()
-    {
-        detenido = true;
-    }
-
-    void actualizarContador()
-    {
-        if (detenido) return;
-
-        if (contador > 0f)
+        if (detenido || contador <= 0f)
         {
-            contador -= Time.deltaTime;
-            BarradeTiempo.maxValue = tiempoTotal;
-            BarradeTiempo.value = contador;
+            if (contador <= 0f && !eventoDisparado)
+            {
+                eventoDisparado = true;
+                OnTiempoAgotado?.Invoke();
+            }
+            return;
         }
+
+        contador -= Time.deltaTime;
+        contador = Mathf.Max(0f, contador);
+
+        if (barraDeTiempo != null)
+            barraDeTiempo.fillAmount = contador / tiempoTotal;
+    }
+
+    public void Detener() => detenido = true;
+    public void Reanudar() => detenido = false;
+    public void Reiniciar()
+    {
+        contador = tiempoTotal;
+        detenido = false;
+        eventoDisparado = false;
     }
 }

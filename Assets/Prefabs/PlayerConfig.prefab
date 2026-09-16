@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6921878809906114226}
   m_Layer: 0
   m_Name: PlayerConfig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +83,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e93f93ce-0607-4fae-acc3-cf3c8fae28bf
     m_ActionName: 'UI/Join[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a4c38cf2-68b1-4a19-9ee8-242fc7fd0ea0
+    m_ActionName: 'Gameplay/Act[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
