@@ -32,7 +32,6 @@ public class Hazard : MonoBehaviour
         if (interactor != null) interactor.QuitarCercano(this);
     }
 
-    //True si hay otro hazard cercano (o tocandose) con mayor prioridad (orden menor) sin limpiar todavia
     public bool EstaBloqueado()
     {
         Collider[] cercanos = Physics.OverlapSphere(transform.position, radioBloqueo);
@@ -43,12 +42,10 @@ public class Hazard : MonoBehaviour
         });
     }
 
-    //Llamado por HazardInteractor cuando se completa el Hold de Act
     public void Interactuar(PlayerInput pi)
     {
         if (pi == null) return;
 
-        // Si es el Organizador y ya tiene algo en mano, no puede intentar recolectar otro
         if (accion == HazardAction.Recolectar)
         {
             var carrierCheck = pi.GetComponentInChildren<Organizador>();

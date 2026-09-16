@@ -9,18 +9,16 @@ public class HazardSpawner : MonoBehaviour
     public class HazardOption
     {
         public GameObject prefab;
-        [Range(0f, 1f)] public float weight = 1f; // probabilidad relativa
-
-        //Solo lectura, para mostrar info util en el Inspector sin duplicar datos
+        [Range(0f, 1f)] public float weight = 1f;
         [HideInInspector] public ClassType requiredClass;
         [HideInInspector] public HazardAction accion;
     }
 
-    [Header("Area de spawneo (rectangular, centrada en este GameObject)")]
-    [SerializeField] private Vector2 areaSize = new Vector2(10f, 10f); // x = ancho, y = largo
+    [Header("Area de spawneo")]
+    [SerializeField] private Vector2 areaSize = new Vector2(10f, 10f); 
     [SerializeField] private bool dibujarGizmo = true;
 
-    [Header("Hazards a spawnear")]
+    [Header("Hazards spawneables")]
     [SerializeField] private HazardOption[] hazardOptions;
 
     [Header("Cantidad de hazards")]
@@ -28,16 +26,12 @@ public class HazardSpawner : MonoBehaviour
     [SerializeField] private int cantidadMax = 10;
 
     [Header("Variedad")]
-    [Tooltip("Si esta activo, se asegura de spawnear al menos 1 de cada tipo de hazard antes de completar el resto al azar.")]
     [SerializeField] private bool garantizarVariedad = true;
-
 
     private readonly List<GameObject> hazardsActivos = new List<GameObject>();
 
     void OnValidate()
     {
-        //Sincroniza los datos de solo-lectura leyendo el componente Hazard del prefab,
-        //asi el Inspector siempre refleja lo que realmente tiene el prefab asignado
         if (hazardOptions == null) return;
 
         foreach (var option in hazardOptions)
@@ -52,17 +46,15 @@ public class HazardSpawner : MonoBehaviour
         }
     }
 
-    //Llamado externamente (ej. desde InitializeLevel) al armar el nivel
     public void SpawnHazards()
     {
         if (hazardOptions == null || hazardOptions.Length == 0) return;
 
-        int cantidad = UnityEngine.Random.Range(cantidadMin, cantidadMax + 1); // max inclusivo
+        int cantidad = UnityEngine.Random.Range(cantidadMin, cantidadMax + 1);
         var pendientes = new List<GameObject>();
 
         if (garantizarVariedad)
         {
-            //Un ejemplar de cada tipo disponible primero, sin pasarnos del total pedido
             foreach (var option in hazardOptions)
             {
                 if (option.prefab == null) continue;
@@ -71,7 +63,6 @@ public class HazardSpawner : MonoBehaviour
             }
         }
 
-        //Completa el resto de forma aleatoria segun el peso de cada opcion
         while (pendientes.Count < cantidad)
         {
             var prefab = ElegirHazardAleatorio();

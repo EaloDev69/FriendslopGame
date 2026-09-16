@@ -11,7 +11,7 @@ public class SelectionMenuController : MonoBehaviour
     [SerializeField] TextMeshProUGUI titleText;
     [SerializeField] GameObject ReadyPanel;
     [SerializeField] GameObject MenuPanel;
-    [SerializeField] GameObject LevelSelectPanel; // nuevo
+    [SerializeField] GameObject LevelSelectPanel;
     [SerializeField] Button readyButton;
     [SerializeField] Button cancelButton;
 
@@ -131,7 +131,6 @@ public class SelectionMenuController : MonoBehaviour
         }
     }
 
-    //Se llama en TODOS los jugadores cuando el ultimo confirma su Ready
     void MostrarSeleccionNivel()
     {
         ReadyPanel.SetActive(false);
@@ -140,7 +139,6 @@ public class SelectionMenuController : MonoBehaviour
         {
             LevelSelectPanel.SetActive(true);
 
-            // Solo el jugador 0 puede interactuar; los demas ven el panel pero no lo navegan
             var botones = LevelSelectPanel.GetComponentsInChildren<Button>();
             foreach (var boton in botones)
             {

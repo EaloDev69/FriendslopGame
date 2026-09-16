@@ -14,7 +14,6 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public event Action OnPlayerClassChanged;
 
-    //Se dispara cuando todos los jugadores confirmaron su clase
     public event Action OnAllPlayersReady;
 
     void Awake()

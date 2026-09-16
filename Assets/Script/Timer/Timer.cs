@@ -39,5 +39,16 @@ public class Timer : MonoBehaviour
             BarradeTiempo.maxValue = tiempoTotal;
             BarradeTiempo.value = contador;
         }
+        else
+        {
+            ResetLevel();
+        }
+    }
+
+    private void ResetLevel()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex
+        );
     }
 }

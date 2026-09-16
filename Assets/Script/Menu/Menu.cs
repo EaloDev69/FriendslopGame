@@ -9,9 +9,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject layout;
     [SerializeField] TextMeshProUGUI Instruccion;
 
-    [Header("Seleccion de nivel")]
-    [SerializeField] GameObject levelSelectionPanel; // nuevo panel, arrastrar en el Inspector
-
     public bool Menuapagado { get; private set; }
 
     void Awake()
@@ -23,8 +20,6 @@ public class MenuManager : MonoBehaviour
             UnityEngine.InputSystem.PlayerInputManager.instance.DisableJoining();
         }
         Instruccion.gameObject.SetActive(false);
-
-        if (levelSelectionPanel != null) levelSelectionPanel.SetActive(false);
     }
 
     void Start()
@@ -60,7 +55,5 @@ public class MenuManager : MonoBehaviour
     void MostrarSeleccionNivel()
     {
         Instruccion.gameObject.SetActive(false);
-
-        if (levelSelectionPanel != null) levelSelectionPanel.SetActive(true);
     }
 }

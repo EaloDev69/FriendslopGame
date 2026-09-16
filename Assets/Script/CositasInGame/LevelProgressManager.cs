@@ -5,7 +5,7 @@ public class LevelProgressManager : MonoBehaviour
 {
     public static LevelProgressManager Instance { get; private set; }
 
-    [SerializeField] private Timer timer; // referencia al Timer de esta escena
+    [SerializeField] private Timer timer;
 
     public int TotalHazards { get; private set; }
     public int HazardsRestantes { get; private set; }
@@ -25,7 +25,6 @@ public class LevelProgressManager : MonoBehaviour
         Instance = this;
     }
 
-    //Llamado por cada Hazard al nacer
     public void RegisterHazard()
     {
         TotalHazards++;
@@ -33,7 +32,6 @@ public class LevelProgressManager : MonoBehaviour
         OnHazardsChanged?.Invoke(HazardsRestantes, TotalHazards);
     }
 
-    //Llamado por cada Hazard al ser destruido (limpiado o entregado)
     public void HazardCleaned()
     {
         if (NivelCompletado) return;

@@ -796,7 +796,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223334927}
-  - component: {fileID: 1223334926}
   - component: {fileID: 1223334928}
   m_Layer: 0
   m_Name: MenuManager
@@ -805,22 +804,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1223334926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223334925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63c3c2422f010b42a72cdcf12aad905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Menu
-  cv: {fileID: 820866401}
-  layout: {fileID: 1340462695}
-  Instruccion: {fileID: 1538298661}
-  levelSelectionPanel: {fileID: 0}
 --- !u!4 &1223334927
 Transform:
   m_ObjectHideFlags: 0
@@ -845,15 +828,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1223334925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb22e16c25703840b02188a29924bf0, type: 3}
+  m_Script: {fileID: 11500000, guid: c63c3c2422f010b42a72cdcf12aad905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
-  Textostutorial: {fileID: 0}
-  Limpiador: {fileID: 0}
-  Organizador: {fileID: 0}
-  Trapeador: {fileID: 0}
-  Barrendero: {fileID: 0}
-  Controles: {fileID: 0}
+  cv: {fileID: 820866401}
+  layout: {fileID: 1340462695}
+  Instruccion: {fileID: 1538298661}
 --- !u!1 &1304625522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,8 +1383,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1223334926}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 1223334928}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ApagarMenu
         m_Mode: 1
         m_Arguments:

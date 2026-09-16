@@ -29,6 +29,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Teleport(Vector3 position, Quaternion rotation)
+    {
+        if (controller != null) controller.enabled = false;
+
+        transform.position = position;
+        transform.rotation = rotation;
+        velocity = Vector3.zero; // clave: resetea la gravedad/salto acumulados
+
+        if (controller != null) controller.enabled = true;
+    }
+
     void Update()
     {
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);

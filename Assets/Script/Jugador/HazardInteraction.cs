@@ -13,7 +13,6 @@ public class HazardInteractor : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInput>();
     }
 
-    //Enganchar este metodo al evento "Act" del PlayerInput
     public void Act(InputAction.CallbackContext context)
     {
         Debug.Log("Act invocado, performed: " + context.performed);

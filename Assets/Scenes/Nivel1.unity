@@ -968,7 +968,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: cantidadMax
-      value: 15
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
+      propertyPath: cantidadMin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: hazardOptions.Array.data[1].weight
@@ -3636,11 +3640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: cantidadMax
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: cantidadMin
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: hazardOptions.Array.data[0].weight
@@ -4594,7 +4598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b528d690ac676e44689b320e0b37ec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
-  tiempoTotal: 180
+  tiempoTotal: 10
   BarradeTiempo: {fileID: 58754073}
 --- !u!4 &848016296
 Transform:
@@ -6908,11 +6912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: cantidadMax
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: cantidadMin
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: hazardOptions.Array.data[1].weight
@@ -7479,7 +7483,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: cantidadMax
-      value: 15
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
+      propertyPath: cantidadMin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: hazardOptions.Array.data[1].weight
@@ -9329,7 +9337,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10319,7 +10327,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10458,6 +10466,14 @@ PrefabInstance:
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: areaSize.y
       value: 5.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
+      propertyPath: cantidadMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
+      propertyPath: cantidadMin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5910191403875884270, guid: e0198e19385ecec4880759650ab76455, type: 3}
       propertyPath: hazardOptions.Array.data[1].weight
@@ -11213,7 +11229,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

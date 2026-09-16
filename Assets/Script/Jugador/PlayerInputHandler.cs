@@ -13,10 +13,16 @@ public class PlayerInputHandler : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
-    public void InitializePlayer(PlayerConfigurations pc)
+     public void InitializePlayer(PlayerConfigurations pc)
     {
         playerConfig = pc;
         if (pc.ClassPrefab == null) return;
+
+        // Ya existe una instancia del personaje: no volver a crear, solo actualizar posición si hace falta
+        if (classInstance != null)
+        {
+            return;
+        }
 
         classInstance = Instantiate(pc.ClassPrefab, transform);
         classInstance.transform.localPosition = Vector3.zero;
@@ -39,7 +45,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         if (playerInput != null)
         {
-            playerInput.SwitchCurrentActionMap("Gameplay"); // <- clave
+            playerInput.SwitchCurrentActionMap("Gameplay");
         }
     }
 }

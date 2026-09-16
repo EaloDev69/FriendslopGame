@@ -27,7 +27,6 @@ public class Organizador : MonoBehaviour
         return true;
     }
 
-    //Llamado por la SortingZone cuando el jugador entrega el hazard
     public void EntregarHazard()
     {
         if (hazardCargado == null) return;

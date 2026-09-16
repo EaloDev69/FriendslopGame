@@ -11,7 +11,6 @@ public class HazardCounterUI : MonoBehaviour
         if (LevelProgressManager.Instance != null)
         {
             LevelProgressManager.Instance.OnHazardsChanged += ActualizarTexto;
-            // Por si esto se activa despues de que ya se registraron hazards
             ActualizarTexto(LevelProgressManager.Instance.HazardsRestantes, LevelProgressManager.Instance.TotalHazards);
         }
     }
