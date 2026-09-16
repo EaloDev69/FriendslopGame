@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762b9c6c42e576640b1b3e80797a1045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectLevelButton
-  buildIndexNivel: 2
+  nivel: 2
 --- !u!1 &1394761009076767817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,7 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762b9c6c42e576640b1b3e80797a1045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectLevelButton
-  buildIndexNivel: 1
+  nivel: 1
 --- !u!1 &6701495438221495021
 GameObject:
   m_ObjectHideFlags: 0

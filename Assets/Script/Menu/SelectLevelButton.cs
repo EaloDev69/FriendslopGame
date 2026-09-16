@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SelectLevelButton : MonoBehaviour
 {
-    [SerializeField] private int buildIndexNivel;
+    [SerializeField] private Nivel nivel;
 
     public void Seleccionar()
     {
-        EscenarioManager.Instance.CargarNivel(buildIndexNivel);
+        EscenarioManager.Instance.CargarNivel(nivel);
     }
 }

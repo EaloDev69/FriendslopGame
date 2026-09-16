@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+public enum Nivel
+{
+    Menu = 0,
+    NivelUno = 1,
+    NivelDos = 2,
+    Creditos = 3
+}
+
 public class LevelExitZone : MonoBehaviour
 {
     [SerializeField] private float tiempoCuentaRegresiva = 5f;
@@ -81,8 +89,9 @@ public class LevelExitZone : MonoBehaviour
         Debug.Log("Cuenta regresiva iniciada.");
         yield return new WaitForSeconds(tiempoCuentaRegresiva);
 
-        int siguienteNivel = SceneManager.GetActiveScene().buildIndex + 1;
-        EscenarioManager.Instance.DesbloquearNivel(siguienteNivel);
-        EscenarioManager.Instance.CargarNivel(siguienteNivel);
+        Nivel actual = (Nivel)SceneManager.GetActiveScene().buildIndex;
+        Nivel otroNivel = (actual == Nivel.NivelUno) ? Nivel.NivelDos : Nivel.NivelUno;
+
+        EscenarioManager.Instance.CargarNivel(otroNivel);
     }
 }
