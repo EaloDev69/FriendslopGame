@@ -32,11 +32,6 @@ public class LevelExitZone : MonoBehaviour
         if (LevelProgressManager.Instance != null)
         {
             LevelProgressManager.Instance.OnNivelCompletado += Activar;
-            Debug.Log("LevelExitZone suscrito a LevelProgressManager.");
-        }
-        else
-        {
-            Debug.LogWarning("LevelProgressManager.Instance es null al iniciar LevelExitZone.");
         }
     }
 
@@ -51,7 +46,6 @@ public class LevelExitZone : MonoBehaviour
         activa = true;
         if (zonaCollider != null) zonaCollider.enabled = true;
         Salida.gameObject.SetActive(true);
-        Debug.Log("Zona de salida habilitada.");
     }
 
     void OnTriggerEnter(Collider other)
@@ -76,7 +70,7 @@ public class LevelExitZone : MonoBehaviour
         {
             StopCoroutine(cuentaRegresivaCoroutine);
             cuentaRegresivaCoroutine = null;
-            Debug.Log("Cuenta regresiva cancelada, un jugador salio de la zona.");
+
         }
     }
 
