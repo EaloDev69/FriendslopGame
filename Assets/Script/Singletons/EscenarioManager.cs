@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,23 @@ public class EscenarioManager : MonoBehaviour
     public void CargarNivel(Nivel nivel) => SceneManager.LoadScene((int)nivel);
 
     public void Menu() => CargarNivel(Nivel.Menu);
+
+    public void VolverAlMenuYReiniciar()
+    {
+        StartCoroutine(ReiniciarYVolverAlMenu());
+    }
+
+    IEnumerator ReiniciarYVolverAlMenu()
+    {
+        if (PlayerConfigurationManager.Instance != null)
+        {
+            PlayerConfigurationManager.Instance.ResetAll();
+        }
+
+        yield return null;
+
+        CargarNivel(Nivel.Menu);
+    }
 
     public void Salir()
     {

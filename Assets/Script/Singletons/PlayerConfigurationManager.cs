@@ -88,6 +88,21 @@ public class PlayerConfigurationManager : MonoBehaviour
             players.Add(new PlayerConfigurations(pi));
         }
     }
+
+    public void ResetAll()
+    {
+        foreach (var pc in players)
+        {
+            if (pc.Input != null)
+            {
+                Destroy(pc.Input.gameObject);
+            }
+        }
+
+        players.Clear();
+        Instance = null;
+        Destroy(gameObject);
+    }
 }
 
 public enum ClassType
