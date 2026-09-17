@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+
 
 public enum Nivel
 {
@@ -16,6 +18,7 @@ public class LevelExitZone : MonoBehaviour
 {
     [SerializeField] private float tiempoCuentaRegresiva = 5f;
     [SerializeField] private Collider zonaCollider;
+    [SerializeField] private TextMeshPro Salida;
 
     private readonly HashSet<int> jugadoresDentro = new HashSet<int>();
     private Coroutine cuentaRegresivaCoroutine;
@@ -23,6 +26,7 @@ public class LevelExitZone : MonoBehaviour
 
     void Start()
     {
+        Salida.gameObject.SetActive(false);
         if (zonaCollider != null) zonaCollider.enabled = false;
 
         if (LevelProgressManager.Instance != null)
@@ -46,6 +50,7 @@ public class LevelExitZone : MonoBehaviour
     {
         activa = true;
         if (zonaCollider != null) zonaCollider.enabled = true;
+        Salida.gameObject.SetActive(true);
         Debug.Log("Zona de salida habilitada.");
     }
 
